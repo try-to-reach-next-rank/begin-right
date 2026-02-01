@@ -1,9 +1,6 @@
-// lib/exerciseMedia.ts
-// Mapping bài tập -> media (Lottie). Bạn có thể thay thế các file JSON trong /public/lottie
-
 export type ExerciseMedia = {
-  lottie: string; // path từ /public
-  alt: string;
+  src: string; // path từ /public
+  label: string;
 };
 
 // Chuẩn hoá key theo title trong plan14.ts
@@ -23,7 +20,7 @@ export function exerciseKeyFromTitle(title: string): string {
 export function mediaForExerciseTitle(title: string): ExerciseMedia {
   const key = exerciseKeyFromTitle(title);
   return {
-    lottie: `/lottie/${key}.json`,
-    alt: `Minh hoạ động tác: ${title}`,
+    src: `/lottie/${key}.json`,
+    label: `Minh hoạ động tác: ${title}`,
   };
 }
