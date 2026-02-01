@@ -213,19 +213,20 @@ export default function DayPage() {
             </button>
           </>
         )}
-<CoachTimerOverlay
-  open={timerOpen}
-  plan={timerPlan}
-  onClose={() => {
-    setTimerOpen(false);
-    setTimerPlan(null);
-  }}
-/>
 
         <div className="mt-4 text-xs" style={{ color: "var(--muted)" }}>
           Nếu đau nhói/choáng/tê, hãy dừng và ưu tiên an toàn.
         </div>
       </div>
+
+      <CoachTimerOverlay
+        open={timerOpen}
+        plan={timerPlan}
+        onClose={() => {
+          setTimerOpen(false);
+          setTimerPlan(null);
+        }}
+      />
     </main>
   );
 }
@@ -235,11 +236,9 @@ function Block({ title, items }: { title: string; items: string[] }) {
     <div>
       <div style={{ fontWeight: 700 }}>{title}</div>
       <ul style={{ marginTop: 6, paddingLeft: 18 }}>
-        {items && typeof items === "object" &&
-          Object.entries(items).map(([k, v], i) => (
-            <li key={i}>
-              <strong>{k}:</strong> {v}
-            </li>
+        {items && Array.isArray(items) &&
+          items.map((item, i) => (
+            <li key={i}>{item}</li>
           ))
         }
       </ul>
