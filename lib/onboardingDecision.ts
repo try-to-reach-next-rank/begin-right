@@ -86,5 +86,6 @@ export function decideOnboarding(
     resultType: "training",
     level,
     healthPreset
+    reason: "Bạn đủ điều kiện để bắt đầu chương trình training."
   };
 }
