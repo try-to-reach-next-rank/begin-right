@@ -3,6 +3,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Lottie from "lottie-react";
 
+type LottieAnimationData = any; // Lottie types are any
+
 type Props = {
   src: string; // /lottie/*.json
   label: string;
@@ -11,7 +13,7 @@ type Props = {
 };
 
 export default function ExerciseAnimation({ src, label, size = "md", className }: Props) {
-  const [data, setData] = useState<any | null>(null);
+  const [data, setData] = useState<LottieAnimationData | null>(null);
   const [failed, setFailed] = useState(false);
 
   const dims = useMemo(() => {
